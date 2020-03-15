@@ -63,10 +63,13 @@ class Graphics
 {
 	std::array<Sala, NUM_SALAS> salas;
 	Sala centroMensajes;
+	PlayerInfo PlayersArr[6];
+	int MaxPlayer;
+	int MoveLeft=0;
 public:
-	Graphics();
+	Graphics(int max);
 	void DrawDungeon();
-	void DrawDungeon(PlayerInfo Players[6] );
+	void UpdatePlayerPos(PlayerInfo Players[6] );
 	~Graphics();
 };
 

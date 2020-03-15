@@ -4,10 +4,9 @@
 
 PlayerInfo::PlayerInfo()
 {
-	position.x = std::rand() % 10;
-	position.y = std::rand() % 10;
-	//position.x = 1;
-	//position.y = 1;
+	
+	position.x = 30;
+	position.y = 15;
 	lives = 3;
 }
 
