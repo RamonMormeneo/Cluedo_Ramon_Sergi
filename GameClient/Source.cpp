@@ -1,7 +1,7 @@
 #pragma once
 #include <PlayerInfo.h>
 #include <SFML\Network.hpp>
-
+#include <time.h>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -14,6 +14,7 @@
 
 int main()
 {
+	srand(time(NULL));
 	PlayerInfo playerInfo;
 	Graphics g(1);
 	PlayerInfo restplayers[6];

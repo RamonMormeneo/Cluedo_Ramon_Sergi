@@ -70,6 +70,7 @@ public:
 	Graphics(int max);
 	void DrawDungeon();
 	void UpdatePlayerPos(PlayerInfo Players[6] );
+	void LanzarDados();
 	~Graphics();
 };
 

@@ -43,6 +43,11 @@ void Graphics::DrawDungeon( )
 		sf::Event event;
 		bool playerMoved = false;
 		std::cout << "You can move " << MoveLeft << " time" << std::endl;
+		std::cout << "You have " << PlayersArr[0].NumCartas << " cards" << std::endl;
+		if (MoveLeft == 0)
+		{
+			LanzarDados();
+		}
 		while (_window.pollEvent(event))
 		{
 			
@@ -56,7 +61,7 @@ void Graphics::DrawDungeon( )
 				{
 					_window.close();
 				}
-				if (event.key.code == sf::Keyboard::Left)
+				if (event.key.code == sf::Keyboard::Left && MoveLeft!=0)
 				{
 					if (PlayersArr[0].position.x > 0)
 					{
@@ -66,7 +71,7 @@ void Graphics::DrawDungeon( )
 					
 					}
 				}
-				else if (event.key.code == sf::Keyboard::Up)
+				else if (event.key.code == sf::Keyboard::Up && MoveLeft != 0)
 				{
 					
 					if (PlayersArr[0].position.y > 0)
@@ -77,7 +82,7 @@ void Graphics::DrawDungeon( )
 						
 					}
 				}
-				else if (event.key.code == sf::Keyboard::Right)
+				else if (event.key.code == sf::Keyboard::Right && MoveLeft != 0)
 				{
 					
 					if (PlayersArr[0].position.x < W_WINDOW_TITLE-1)
@@ -88,7 +93,7 @@ void Graphics::DrawDungeon( )
 						
 					}
 				}
-				else if (event.key.code == sf::Keyboard::Down)
+				else if (event.key.code == sf::Keyboard::Down && MoveLeft != 0)
 				{
 					
 					if (PlayersArr[0].position.y < H_WINDOW_TITLE-1)
@@ -170,6 +175,19 @@ void Graphics::UpdatePlayerPos(PlayerInfo Players[6])
 		PlayersArr[i] = Players[i];
 	}
 	
+}
+
+void Graphics::LanzarDados()
+{
+	for (int i = 0; i < 2; i++)
+	{
+		int dado = rand() % 7 + 1;
+		if (dado == 1)
+		{
+			PlayersArr[0].NumCartas++;
+		}
+		MoveLeft += dado;
+	}
 }
 
 
