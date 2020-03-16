@@ -81,6 +81,9 @@ class Graphics
 	Sala centroMensajes;
 	std::vector<Carta> Miscartas;
 	std::stack<Carta> Baraja;
+	Carta ArmaA{ "","" };
+	Carta SalaA{ "","" };
+	Carta Asesino{ "","" };
 	PlayerInfo PlayersArr[6];
 	int MaxPlayer;
 	int MoveLeft=0;
@@ -89,6 +92,7 @@ class Graphics
 	bool MovU = true;
 	bool MovD = true;
 	bool reset = false;
+	bool endGAme = false;
 public:
 	Graphics(int max);
 	void DrawDungeon();
@@ -96,6 +100,9 @@ public:
 	void LanzarDados();
 	void GenerarBaraja();
 	void ColisionconSala();
+	void CreateAsesino();
+	void Inclulpar(std::string salaActual);
+	void ConfirmarAcussacion(std::string arma,std::string persona,std::string);
 	~Graphics();
 };
 

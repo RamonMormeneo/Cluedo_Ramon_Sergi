@@ -36,4 +36,44 @@ c:\users\dolors\desktop\platilla_3projects\cluedo_ramon_sergi\gameclient\graphic
           [
               T=float
           ]
+  Source.cpp
+c:\users\dolors\desktop\platilla_3projects\cluedo_ramon_sergi\gameclient\graphics.h(46): warning C4244: '=': conversión de 'int' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+c:\users\dolors\desktop\platilla_3projects\cluedo_ramon_sergi\gameclient\graphics.h(47): warning C4244: '=': conversión de 'int' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+c:\users\dolors\desktop\platilla_3projects\cluedo_ramon_sergi\gameclient\graphics.h(48): warning C4244: '=': conversión de 'int' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+c:\users\dolors\desktop\platilla_3projects\cluedo_ramon_sergi\gameclient\graphics.h(49): warning C4244: '=': conversión de 'int' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+c:\users\dolors\desktop\platilla_3projects\cluedo_ramon_sergi\gameclient\graphics.h(57): warning C4244: 'inicializando': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+c:\users\dolors\desktop\platilla_3projects\cluedo_ramon_sergi\gameclient\graphics.h(57): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\dolors\desktop\platilla_3projects\cluedo_ramon_sergi\gameclient\graphics.h(59): warning C4244: 'inicializando': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+c:\users\dolors\desktop\platilla_3projects\cluedo_ramon_sergi\gameclient\graphics.h(59): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\dolors\desktop\platilla_3projects\cluedo_ramon_sergi\gameclient\graphics.h(61): warning C4244: 'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+c:\users\dolors\desktop\platilla_3projects\cluedo_ramon_sergi\gameclient\source.cpp(17): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  Generando código...
   GameClient.vcxproj -> C:\Users\Dolors\Desktop\Platilla_3Projects\Cluedo_Ramon_Sergi\x64\Debug\GameClient.exe
