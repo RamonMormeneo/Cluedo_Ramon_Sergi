@@ -4,11 +4,10 @@
 
 PlayerInfo::PlayerInfo()
 {
-	position.x = std::rand() % 10;
-	position.y = std::rand() % 10;
-	//position.x = 1;
-	//position.y = 1;
-	lives = 3;
+	
+	position.x = 29;
+	position.y = 15;
+	
 }
 
 PlayerInfo::~PlayerInfo()

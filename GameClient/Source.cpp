@@ -1,7 +1,7 @@
 #pragma once
 #include <PlayerInfo.h>
 #include <SFML\Network.hpp>
-
+#include <time.h>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -14,11 +14,12 @@
 
 int main()
 {
+	srand(time(NULL));
 	PlayerInfo playerInfo;
-	Graphics g;
+	Graphics g(1);
 	PlayerInfo restplayers[6];
 	restplayers[1] = playerInfo;
-
-	g.DrawDungeon(restplayers);
+	g.UpdatePlayerPos(restplayers);
+	g.DrawDungeon();
 	return 0;
 }
