@@ -9,6 +9,7 @@
 #include "Graphics.h"
 #include <mutex>
 #include "Constants.h"
+#include <PlayerProxy.h>
 
 
 

@@ -144,9 +144,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PlayerInfo.h" />
+    <ClInclude Include="PlayerProxy.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PlayerInfo.cpp" />
+    <ClCompile Include="PlayerProxy.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
