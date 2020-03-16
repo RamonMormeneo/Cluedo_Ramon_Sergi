@@ -143,10 +143,12 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="joinServer.h" />
     <ClInclude Include="PlayerInfo.h" />
     <ClInclude Include="PlayerProxy.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="joinServer.cpp" />
     <ClCompile Include="PlayerInfo.cpp" />
     <ClCompile Include="PlayerProxy.cpp" />
   </ItemGroup>

@@ -1,13 +1,13 @@
 #pragma once
 #include <SFML\Network.hpp>
-
+#include "PlayerProxy.h" 
 class GameProxy
 {
 public:
 	GameProxy(int _id, std::string _name);
 	~GameProxy();
 	int id;
-	std::string name;
+	std::vector<PlayerProxy*> playerProxies;
 	enum State
 	{
 		INFO,
