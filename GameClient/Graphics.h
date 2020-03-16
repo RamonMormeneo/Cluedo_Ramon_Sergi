@@ -84,12 +84,18 @@ class Graphics
 	PlayerInfo PlayersArr[6];
 	int MaxPlayer;
 	int MoveLeft=0;
+	bool MovR = true;
+	bool MovL = true;
+	bool MovU = true;
+	bool MovD = true;
+	bool reset = false;
 public:
 	Graphics(int max);
 	void DrawDungeon();
 	void UpdatePlayerPos(PlayerInfo Players[6] );
 	void LanzarDados();
 	void GenerarBaraja();
+	void ColisionconSala();
 	~Graphics();
 };
 

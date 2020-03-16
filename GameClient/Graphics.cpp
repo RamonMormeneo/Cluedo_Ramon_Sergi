@@ -73,7 +73,7 @@ void Graphics::DrawDungeon( )
 				{
 					_window.close();
 				}
-				if (event.key.code == sf::Keyboard::Left && MoveLeft!=0)
+				if (event.key.code == sf::Keyboard::Left && MoveLeft!=0 && MovL)
 				{
 					if (PlayersArr[0].position.x > 0)
 					{
@@ -83,7 +83,7 @@ void Graphics::DrawDungeon( )
 					
 					}
 				}
-				else if (event.key.code == sf::Keyboard::Up && MoveLeft != 0)
+				else if (event.key.code == sf::Keyboard::Up && MoveLeft != 0 && MovU)
 				{
 					
 					if (PlayersArr[0].position.y > 0)
@@ -94,7 +94,7 @@ void Graphics::DrawDungeon( )
 						
 					}
 				}
-				else if (event.key.code == sf::Keyboard::Right && MoveLeft != 0)
+				else if (event.key.code == sf::Keyboard::Right && MoveLeft != 0 && MovR)
 				{
 					
 					if (PlayersArr[0].position.x < W_WINDOW_TITLE-1)
@@ -105,7 +105,7 @@ void Graphics::DrawDungeon( )
 						
 					}
 				}
-				else if (event.key.code == sf::Keyboard::Down && MoveLeft != 0)
+				else if (event.key.code == sf::Keyboard::Down && MoveLeft != 0 && MovD)
 				{
 					
 					if (PlayersArr[0].position.y < H_WINDOW_TITLE-1)
@@ -177,6 +177,7 @@ void Graphics::DrawDungeon( )
 		
 		system("CLS");
 		_window.display();
+		ColisionconSala();
 	}
 }
 
@@ -197,8 +198,11 @@ void Graphics::LanzarDados()
 		if (dado == 1)
 		{
 			PlayersArr[0].NumCartas++;
-			Miscartas.push_back(Baraja.top());
-			Baraja.pop();
+			if (!Baraja.empty())
+			{
+				Miscartas.push_back(Baraja.top());
+				Baraja.pop();
+			}
 		}
 		MoveLeft += dado;
 	}
@@ -594,6 +598,310 @@ void Graphics::GenerarBaraja()
 			}
 		}
 	}
+}
+
+void Graphics::ColisionconSala()
+{
+	if ((PlayersArr[0].position.y == 12 || PlayersArr[0].position.y == 13 || PlayersArr[0].position.y == 14 || PlayersArr[0].position.y == 15 || PlayersArr[0].position.y == 16 || PlayersArr[0].position.y == 17 || PlayersArr[0].position.y == 18 || PlayersArr[0].position.y == 19) && (PlayersArr[0].position.x == 30 || PlayersArr[0].position.x == 31 || PlayersArr[0].position.x == 32 || PlayersArr[0].position.x == 33 || PlayersArr[0].position.x == 34 || PlayersArr[0].position.x == 35 || PlayersArr[0].position.x == 36 || PlayersArr[0].position.x == 37 || PlayersArr[0].position.x == 38 || PlayersArr[0].position.x == 39))
+	{
+		MovL = false;
+		MovR = false;
+		MovU = false;
+		MovD = false;
+		if (!reset)
+		{
+			MoveLeft = 0;
+			reset = true;
+		}
+			std::cout << "Estoy en el vestibulo" << std::endl;
+			if (PlayersArr[0].position.x == 30)
+			{
+				MovL = true;
+				
+			}
+			if (PlayersArr[0].position.y == 12)
+			{
+				
+				MovU = true;
+				
+			}
+			if(PlayersArr[0].position.y == 19)
+			{
+				
+				MovD = true;
+			}
+	}
+	else if ((PlayersArr[0].position.y == 22 || PlayersArr[0].position.y == 23 || PlayersArr[0].position.y == 24 || PlayersArr[0].position.y == 25 || PlayersArr[0].position.y == 26 || PlayersArr[0].position.y == 27 || PlayersArr[0].position.y == 28 || PlayersArr[0].position.y == 29) && (PlayersArr[0].position.x == 30 || PlayersArr[0].position.x == 31 || PlayersArr[0].position.x == 32 || PlayersArr[0].position.x == 33 || PlayersArr[0].position.x == 34 || PlayersArr[0].position.x == 35 || PlayersArr[0].position.x == 36 || PlayersArr[0].position.x == 37 || PlayersArr[0].position.x == 38 || PlayersArr[0].position.x == 39))
+	{
+		MovL = false;
+		MovR = false;
+		MovU = false;
+		MovD = false;
+		if (!reset)
+		{
+			MoveLeft = 0;
+			reset = true;
+		}
+		std::cout << "Estoy en el Salon" << std::endl;
+		if (PlayersArr[0].position.x == 30)
+		{
+			MovL = true;
+
+		}
+		if (PlayersArr[0].position.y == 22)
+		{
+
+			MovU = true;
+
+		}
+	}
+	else if ((PlayersArr[0].position.y == 9 || PlayersArr[0].position.y == 8 || PlayersArr[0].position.y == 7 || PlayersArr[0].position.y == 6 || PlayersArr[0].position.y == 5 || PlayersArr[0].position.y == 4 || PlayersArr[0].position.y == 3 || PlayersArr[0].position.y == 2 || PlayersArr[0].position.y == 1 || PlayersArr[0].position.y == 0) && (PlayersArr[0].position.x == 32 || PlayersArr[0].position.x == 33 || PlayersArr[0].position.x == 34 || PlayersArr[0].position.x == 35 || PlayersArr[0].position.x == 36 || PlayersArr[0].position.x == 37 || PlayersArr[0].position.x == 38 || PlayersArr[0].position.x == 39))
+	{
+		MovL = false;
+		MovR = false;
+		MovU = false;
+		MovD = false;
+		if (!reset)
+		{
+			MoveLeft = 0;
+			reset = true;
+		}
+		std::cout << "Estoy en el Estudio" << std::endl;
+		if (PlayersArr[0].position.x == 32)
+		{
+			MovL = true;
+
+		}
+		if (PlayersArr[0].position.y == 9)
+		{
+
+			MovD = true;
+
+		}
+	}
+	else if ((PlayersArr[0].position.y == 9 || PlayersArr[0].position.y == 8 || PlayersArr[0].position.y == 7 || PlayersArr[0].position.y == 6 || PlayersArr[0].position.y == 5 || PlayersArr[0].position.y == 4 || PlayersArr[0].position.y == 3 || PlayersArr[0].position.y == 2 || PlayersArr[0].position.y == 1 || PlayersArr[0].position.y == 0) && (PlayersArr[0].position.x == 27 || PlayersArr[0].position.x == 26 || PlayersArr[0].position.x == 25 || PlayersArr[0].position.x == 24 || PlayersArr[0].position.x == 23 || PlayersArr[0].position.x == 22))
+	{
+		MovL = false;
+		MovR = false;
+		MovU = false;
+		MovD = false;
+		if (!reset)
+		{
+			MoveLeft = 0;
+			reset = true;
+		}
+		std::cout << "Estoy en el Biblioteca" << std::endl;
+		if (PlayersArr[0].position.x == 27)
+		{
+			MovR = true;
+
+		}
+		if (PlayersArr[0].position.x == 22)
+		{
+			MovL = true;
+
+		}
+		if (PlayersArr[0].position.y == 9)
+		{
+
+			MovD = true;
+
+		}
+	}
+	else if ((PlayersArr[0].position.y == 9 || PlayersArr[0].position.y == 8 || PlayersArr[0].position.y == 7 || PlayersArr[0].position.y == 6 || PlayersArr[0].position.y == 5 || PlayersArr[0].position.y == 4 || PlayersArr[0].position.y == 3 || PlayersArr[0].position.y == 2 || PlayersArr[0].position.y == 1 || PlayersArr[0].position.y == 0) && (PlayersArr[0].position.x == 17 || PlayersArr[0].position.x == 16 || PlayersArr[0].position.x == 15 || PlayersArr[0].position.x == 14 || PlayersArr[0].position.x == 13 || PlayersArr[0].position.x == 12))
+	{
+	MovL = false;
+	MovR = false;
+	MovU = false;
+	MovD = false;
+	if (!reset)
+	{
+		MoveLeft = 0;
+		reset = true;
+	}
+	std::cout << "Estoy en el Billar" << std::endl;
+	if (PlayersArr[0].position.x == 17)
+	{
+		MovR = true;
+
+	}
+	if (PlayersArr[0].position.x == 12)
+	{
+		MovL = true;
+
+	}
+	if (PlayersArr[0].position.y == 9)
+	{
+
+		MovD = true;
+
+	}
+	}
+	else if ((PlayersArr[0].position.y == 9 || PlayersArr[0].position.y == 8 || PlayersArr[0].position.y == 7 || PlayersArr[0].position.y == 6 || PlayersArr[0].position.y == 5 || PlayersArr[0].position.y == 4 || PlayersArr[0].position.y == 3 || PlayersArr[0].position.y == 2 || PlayersArr[0].position.y == 1 || PlayersArr[0].position.y == 0) && (PlayersArr[0].position.x == 7 || PlayersArr[0].position.x == 6 || PlayersArr[0].position.x == 5 || PlayersArr[0].position.x == 4 || PlayersArr[0].position.x == 3 || PlayersArr[0].position.x == 2 || PlayersArr[0].position.x == 1 || PlayersArr[0].position.x == 0))
+	{
+	MovL = false;
+	MovR = false;
+	MovU = false;
+	MovD = false;
+	if (!reset)
+	{
+		MoveLeft = 0;
+		reset = true;
+	}
+	std::cout << "Estoy en el Invernadero" << std::endl;
+	if (PlayersArr[0].position.x == 7)
+	{
+		MovR = true;
+
+	}
+	if (PlayersArr[0].position.y == 9)
+	{
+
+		MovD = true;
+
+	}
+	}
+	else if ((PlayersArr[0].position.y == 17 || PlayersArr[0].position.y == 16 || PlayersArr[0].position.y == 15 || PlayersArr[0].position.y == 14 || PlayersArr[0].position.y == 13 || PlayersArr[0].position.y == 12 ) && (PlayersArr[0].position.x == 7 || PlayersArr[0].position.x == 6 || PlayersArr[0].position.x == 5 || PlayersArr[0].position.x == 4 || PlayersArr[0].position.x == 3 || PlayersArr[0].position.x == 2 || PlayersArr[0].position.x == 1 || PlayersArr[0].position.x == 0))
+	{
+	MovL = false;
+	MovR = false;
+	MovU = false;
+	MovD = false;
+	if (!reset)
+	{
+		MoveLeft = 0;
+		reset = true;
+	}
+	std::cout << "Estoy en la Sala de baile" << std::endl;
+	if (PlayersArr[0].position.x == 7)
+	{
+		MovR = true;
+
+	}
+	if (PlayersArr[0].position.y == 17)
+	{
+
+		MovD = true;
+
+	}
+
+	if (PlayersArr[0].position.y == 12)
+	{
+
+		MovU = true;
+
+	}
+	}
+	else if ((PlayersArr[0].position.y == 29 || PlayersArr[0].position.y == 28 || PlayersArr[0].position.y == 27 || PlayersArr[0].position.y == 26 || PlayersArr[0].position.y == 25 || PlayersArr[0].position.y == 24 || PlayersArr[0].position.y == 23 || PlayersArr[0].position.y == 22 || PlayersArr[0].position.y == 21 || PlayersArr[0].position.y == 20) && (PlayersArr[0].position.x == 9 || PlayersArr[0].position.x == 8 || PlayersArr[0].position.x == 7 || PlayersArr[0].position.x == 6 || PlayersArr[0].position.x == 5 || PlayersArr[0].position.x == 4 || PlayersArr[0].position.x == 3 || PlayersArr[0].position.x == 2 || PlayersArr[0].position.x == 1 || PlayersArr[0].position.x == 0))
+	{
+	MovL = false;
+	MovR = false;
+	MovU = false;
+	MovD = false;
+	if (!reset)
+	{
+		MoveLeft = 0;
+		reset = true;
+	}
+	std::cout << "Estoy en la cocina" << std::endl;
+	if (PlayersArr[0].position.x == 9)
+	{
+		MovR = true;
+
+	}
+	
+
+	if (PlayersArr[0].position.y == 20)
+	{
+
+		MovU = true;
+
+	}
+	}
+	else if ((PlayersArr[0].position.y == 29 || PlayersArr[0].position.y == 28 || PlayersArr[0].position.y == 27 || PlayersArr[0].position.y == 26 || PlayersArr[0].position.y == 25 || PlayersArr[0].position.y == 24 || PlayersArr[0].position.y == 23 || PlayersArr[0].position.y == 22 || PlayersArr[0].position.y == 21 || PlayersArr[0].position.y == 20) && (PlayersArr[0].position.x == 25 || PlayersArr[0].position.x == 24 || PlayersArr[0].position.x == 23 || PlayersArr[0].position.x == 22 || PlayersArr[0].position.x ==21 || PlayersArr[0].position.x == 20 || PlayersArr[0].position.x == 19 || PlayersArr[0].position.x == 18 || PlayersArr[0].position.x == 17 || PlayersArr[0].position.x == 16 || PlayersArr[0].position.x == 15 || PlayersArr[0].position.x == 14 || PlayersArr[0].position.x == 13))
+	{
+	MovL = false;
+	MovR = false;
+	MovU = false;
+	MovD = false;
+	if (!reset)
+	{
+		MoveLeft = 0;
+		reset = true;
+	}
+	std::cout << "Estoy en el comedor" << std::endl;
+	if (PlayersArr[0].position.x == 25)
+	{
+		MovR = true;
+
+	}
+	if (PlayersArr[0].position.x == 13)
+	{
+		MovL = true;
+
+	}
+
+	if (PlayersArr[0].position.y == 20)
+	{
+
+		MovU = true;
+
+	}
+	}
+	else if (( PlayersArr[0].position.y == 18 || PlayersArr[0].position.y == 17 || PlayersArr[0].position.y == 16 || PlayersArr[0].position.y == 15 || PlayersArr[0].position.y == 14 || PlayersArr[0].position.y == 13 || PlayersArr[0].position.y == 12 || PlayersArr[0].position.y == 11) && (PlayersArr[0].position.x == 26 || PlayersArr[0].position.x == 25 || PlayersArr[0].position.x == 24 || PlayersArr[0].position.x == 23 || PlayersArr[0].position.x == 22 || PlayersArr[0].position.x == 21 || PlayersArr[0].position.x == 20 || PlayersArr[0].position.x == 19 || PlayersArr[0].position.x == 18 || PlayersArr[0].position.x == 17 || PlayersArr[0].position.x == 16 || PlayersArr[0].position.x == 15 || PlayersArr[0].position.x == 14 || PlayersArr[0].position.x == 13 || PlayersArr[0].position.x == 12 || PlayersArr[0].position.x == 11))
+	{
+
+	if (PlayersArr[0].position.x == 26 && PlayersArr[0].position.y != 11 && PlayersArr[0].position.y != 18)
+	{ 
+	
+		MovL = false;
+		MovR = true;
+		MovU = true;
+		MovD = true;
+	}
+	else if (PlayersArr[0].position.x == 11 && PlayersArr[0].position.y != 11 && PlayersArr[0].position.y != 18)
+	{
+		MovL = true;
+		MovR = false;
+		MovU = true;
+		MovD = true;
+	}
+
+	else if (PlayersArr[0].position.y == 11 && PlayersArr[0].position.x != 11 && PlayersArr[0].position.x != 26)
+	{
+
+		MovL = true;
+		MovR = true;
+		MovU = true;
+		MovD = false;
+
+	}
+	else if (PlayersArr[0].position.y == 18 && PlayersArr[0].position.x != 11 && PlayersArr[0].position.x != 26)
+	{
+
+		MovL = true;
+		MovR = true;
+		MovU = false;
+		MovD = true;
+	}
+	else
+	{
+		MovL = true;
+		MovR = true;
+		MovU = true;
+		MovD = true;
+
+	}
+	}
+	else
+	{
+		MovL = true;
+		MovR = true;
+		MovU = true;
+		MovD = true;
+		reset = false;
+	}
+	
 }
 
 

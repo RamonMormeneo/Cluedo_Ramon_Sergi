@@ -5,7 +5,7 @@
 PlayerInfo::PlayerInfo()
 {
 	
-	position.x = 30;
+	position.x = 29;
 	position.y = 15;
 	
 }
