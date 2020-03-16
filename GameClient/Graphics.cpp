@@ -37,6 +37,12 @@ void Graphics::DrawDungeon( )
 	sf::RectangleShape shape(sf::Vector2f(SIZE, SIZE));
 	shape.setOutlineColor(sf::Color::Black);
 	shape.setOutlineThickness(2.f);
+	GenerarBaraja();
+	for (int i = 0; i < PlayersArr[0].NumCartas; i++)
+	{
+		Miscartas.push_back(Baraja.top());
+		Baraja.pop();
+	}
 	
 	while (_window.isOpen())
 	{
@@ -44,6 +50,12 @@ void Graphics::DrawDungeon( )
 		bool playerMoved = false;
 		std::cout << "You can move " << MoveLeft << " time" << std::endl;
 		std::cout << "You have " << PlayersArr[0].NumCartas << " cards" << std::endl;
+		std::cout << "Your cards are:" << std::endl;
+		for (int i = 0; i < PlayersArr[0].NumCartas; i++)
+		{
+			std::cout << i+1 <<" " << Miscartas[i].N << " " << Miscartas[i].T<< std::endl;
+		}
+		
 		if (MoveLeft == 0)
 		{
 			LanzarDados();
@@ -185,8 +197,402 @@ void Graphics::LanzarDados()
 		if (dado == 1)
 		{
 			PlayersArr[0].NumCartas++;
+			Miscartas.push_back(Baraja.top());
+			Baraja.pop();
 		}
 		MoveLeft += dado;
+	}
+}
+
+void Graphics::GenerarBaraja()
+{
+	
+	int used[20];
+	for (int i = 0; i < 21; i++)
+	{
+		used[i] = 22;
+	}
+	bool Done = false;
+	int b = 0;
+	while (!Done)
+	{
+		int a = rand() % 21;
+		
+		bool find = false;
+		switch (a)
+		{
+		case 0:
+			for (int i = 0; i < 21; i++)
+			{
+				if (used[i] == 0)
+				{
+					find = true;
+					break;
+				}
+			}
+			if (!find)
+			{
+				used[b] = a;
+				Carta Card{std::string("Puñal"),std::string("Arma")};
+				Baraja.push(Card);
+				b++;
+			}
+			break;
+		case 1:
+			for (int i = 0; i < 21; i++)
+			{
+				if (used[i] == 1)
+				{
+					find = true;
+					break;
+				}
+			}
+			if (!find)
+			{
+				used[b] = a;
+				Carta Card{ std::string("Cuerda"),std::string("Arma") };
+				Baraja.push(Card);
+				b++;
+			}
+			break;
+		case 2:
+			for (int i = 0; i < 21; i++)
+			{
+				if (used[i] == 2)
+				{
+					find = true;
+					break;
+				}
+			}
+			if (!find)
+			{
+				used[b] = a;
+				Carta Card{ std::string("Candelabro"),std::string("Arma") };
+				Baraja.push(Card);
+				b++;
+			}
+			break;
+		case 3:
+			for (int i = 0; i < 21; i++)
+			{
+				if (used[i] == 3)
+				{
+					find = true;
+					break;
+				}
+			}
+			if (!find)
+			{
+				used[b] = a;
+				Carta Card{ std::string("Tuberia"),std::string("Arma") };
+				Baraja.push(Card);
+				b++;
+			}
+			break;
+		case 4:
+			for (int i = 0; i < 21; i++)
+			{
+				if (used[i] == 4)
+				{
+					find = true;
+					break;
+				}
+			}
+			if (!find)
+			{
+				used[b] = a;
+				Carta Card{ std::string("Pistola"),std::string("Arma") };
+				Baraja.push(Card);
+				b++;
+			}
+			break;
+		case 5:
+			for (int i = 0; i < 21; i++)
+			{
+				if (used[i] == 5)
+				{
+					find = true;
+					break;
+				}
+			}
+			if (!find)
+			{
+				used[b] = a;
+				Carta Card{ std::string("Herramienta"),std::string("Arma") };
+				Baraja.push(Card);
+				b++;
+			}
+			break;
+		case 6:
+			for (int i = 0; i < 21; i++)
+			{
+				if (used[i] == 6)
+				{
+					find = true;
+					break;
+				}
+			}
+			if (!find)
+			{
+				used[b] = a;
+				Carta Card{ std::string("Amapola"),std::string("Personaje") };
+				Baraja.push(Card);
+				b++;
+			}
+			break;
+		case 7:
+			for (int i = 0; i < 21; i++)
+			{
+				if (used[i] == 7)
+				{
+					find = true;
+					break;
+				}
+			}
+			if (!find)
+			{
+				used[b] = a;
+				Carta Card{ std::string("Rubio"),std::string("Personaje") };
+				Baraja.push(Card);
+				b++;
+			}
+			break;
+		case 8:
+			for (int i = 0; i < 21; i++)
+			{
+				if (used[i] == 8)
+				{
+					find = true;
+					break;
+				}
+			}
+			if (!find)
+			{
+				used[b] = a;
+				Carta Card{ std::string("Orquidea"),std::string("Personaje") };
+				Baraja.push(Card);
+				b++;
+			}
+			break;
+		case 9:
+			for (int i = 0; i < 21; i++)
+			{
+				if (used[i] == 9)
+				{
+					find = true;
+					break;
+				}
+			}
+			if (!find)
+			{
+				used[b] = a;
+				Carta Card{ std::string("Prado"),std::string("Personaje") };
+				Baraja.push(Card);
+				b++;
+			}
+			break;
+		case 10:
+			for (int i = 0; i < 21; i++)
+			{
+				if (used[i] == 10)
+				{
+					find = true;
+					break;
+				}
+			}
+			if (!find)
+			{
+				used[b] = a;
+				Carta Card{ std::string("Celeste"),std::string("Personaje") };
+				Baraja.push(Card);
+				b++;
+			}
+			break;
+		case 11:
+			for (int i = 0; i < 21; i++)
+			{
+				if (used[i] == 11)
+				{
+					find = true;
+					break;
+				}
+			}
+			if (!find)
+			{
+				used[b] = a;
+				Carta Card{ std::string("Mora"),std::string("Personaje") };
+				Baraja.push(Card);
+				b++;
+			}
+			break;
+		case 12:
+			for (int i = 0; i < 21; i++)
+			{
+				if (used[i] == 12)
+				{
+					find = true;
+					break;
+				}
+			}
+			if (!find)
+			{
+				used[b] = a;
+				Carta Card{ std::string("Invernadero"),std::string("Habitacion") };
+				Baraja.push(Card);
+				b++;
+			}
+			break;
+		case 13:
+			for (int i = 0; i < 21; i++)
+			{
+				if (used[i] == 13)
+				{
+					find = true;
+					break;
+				}
+			}
+			if (!find)
+			{
+				used[b] = a;
+				Carta Card{ std::string("Billar"),std::string("Habitacion") };
+				Baraja.push(Card);
+				b++;
+			}
+			break;
+		case 14:
+			for (int i = 0; i < 21; i++)
+			{
+				if (used[i] == 14)
+				{
+					find = true;
+					break;
+				}
+			}
+			if (!find)
+			{
+				used[b] = a;
+				Carta Card{ std::string("Biblioteca"),std::string("Habitacion") };
+				Baraja.push(Card);
+				b++;
+			}
+			break;
+		case 15:
+			for (int i = 0; i < 21; i++)
+			{
+				if (used[i] == 15)
+				{
+					find = true;
+					break;
+				}
+			}
+			if (!find)
+			{
+				used[b] = a;
+				Carta Card{ std::string("Estudio"),std::string("Habitacion") };
+				Baraja.push(Card);
+				b++;
+			}
+			break;
+		case 16:
+			for (int i = 0; i < 21; i++)
+			{
+				if (used[i] == 16)
+				{
+					find = true;
+					break;
+				}
+			}
+			if (!find)
+			{
+				used[b] = a;
+				Carta Card{ std::string("Sala Baile"),std::string("Habitacion") };
+				Baraja.push(Card);
+				b++;
+			}
+			break;
+		case 17:
+			for (int i = 0; i < 21; i++)
+			{
+				if (used[i] == 17)
+				{
+					find = true;
+					break;
+				}
+			}
+			if (!find)
+			{
+				used[b] = a;
+				Carta Card{ std::string("Cocina"),std::string("Habitacion") };
+				Baraja.push(Card);
+				b++;
+			}
+			break;
+		case 18:
+			for (int i = 0; i < 21; i++)
+			{
+				if (used[i] == 18)
+				{
+					find = true;
+					break;
+				}
+			}
+			if (!find)
+			{
+				used[b] = a;
+				Carta Card{ std::string("Comedor"),std::string("Habitacion") };
+				Baraja.push(Card);
+				b++;
+			}
+			break;
+		case 19:
+			for (int i = 0; i < 21; i++)
+			{
+				if (used[i] == 19)
+				{
+					find = true;
+					break;
+				}
+			}
+			if (!find)
+			{
+				used[b] = a;
+				Carta Card{ std::string("Salon"),std::string("Habitacion") };
+				Baraja.push(Card);
+				b++;
+			}
+			break;
+		case 20:
+			for (int i = 0; i < 21; i++)
+			{
+				if (used[i] == 20)
+				{
+					find = true;
+					break;
+				}
+			}
+			if (!find)
+			{
+				used[b] = a;
+				Carta Card{ std::string("Vestibulo"),std::string("Habitacion") };
+				Baraja.push(Card);
+				b++;
+			}
+			break;
+		default:
+			break;
+		}
+		for (int i = 0; i < 21; i++)
+		{
+			if (used[i] == 22)
+			{
+				Done = false;
+				break;
+			}
+			else
+			{
+				Done = true;
+			}
+		}
 	}
 }
 

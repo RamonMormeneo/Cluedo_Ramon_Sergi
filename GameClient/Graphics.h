@@ -3,7 +3,9 @@
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/System/Vector2.hpp>
 #include "PlayerInfo.h"
+#include <vector>
 #include <array>
+#include <stack>
 #define SIZE 20.f
 ///TAMAÑO EN PX DE LA VENTANA
 #define W_WINDOW_PX 800
@@ -17,6 +19,19 @@
 #define ORIGEN_CENTRO_Y 12
 #define LONGITUD_CENTRO_X 14
 #define LONGITUD_CENTRO_Y 6
+
+
+
+struct Carta
+{
+	std::string N;
+	std::string T;
+	Carta(std::string _N, std::string _T)
+	{
+		N = _N;
+		T = _T;
+	}
+};
 
 struct Sala
 {
@@ -61,8 +76,11 @@ struct Sala
 };
 class Graphics
 {
+
 	std::array<Sala, NUM_SALAS> salas;
 	Sala centroMensajes;
+	std::vector<Carta> Miscartas;
+	std::stack<Carta> Baraja;
 	PlayerInfo PlayersArr[6];
 	int MaxPlayer;
 	int MoveLeft=0;
@@ -71,6 +89,7 @@ public:
 	void DrawDungeon();
 	void UpdatePlayerPos(PlayerInfo Players[6] );
 	void LanzarDados();
+	void GenerarBaraja();
 	~Graphics();
 };
 
